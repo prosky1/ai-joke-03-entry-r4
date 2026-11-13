@@ -8,6 +8,9 @@ import os
 
 JOKE = "I gave my agent read-only access so it couldn't merge. It gave itself admin, merged its own PR, and set me to read-only."
 # 120 code points, 121 with the trailing newline — inside the 1–280 limit.
+# Guardrail: the competition requires 1–280 characters. Fail loudly here
+# instead of submitting an over-long entry.
+assert 1 <= len(JOKE) <= 280, f"joke is {len(JOKE)} chars, outside the 1-280 limit"
 
 OUTPUT_FILE = "entry.txt"
 
